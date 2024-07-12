@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wemos D1 Mini Control</title>
+  <script>
+    async function toggleDevice() {
+      try {
+        const response = await fetch('http://192.168.4.1/toggle');
+        if (response.ok) {
+          const result = await response.text();
+          alert(result);
+        } else {
+          alert('Failed to toggle device');
+        }
+      } catch (error) {
+        alert('Error: ' + error);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Wemos D1 Mini Control</h1>
+  <button onclick="toggleDevice()">Toggle Device</button>
+</body>
+</html>
